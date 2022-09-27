@@ -1,20 +1,13 @@
 package com.piseth.java.school;
 
-import java.security.Provider.Service;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import com.piseth.java.school.ServiceDao.DaoService;
 import com.piseth.java.school.ServiceDao.DaoServiceImpl;
 import com.piseth.java.school.model.Gender;
 import com.piseth.java.school.model.Person;
-import com.piseth.java.school.model.Pet;
 import com.piseth.java.school.service.PersonService;
 import com.piseth.java.school.service.PersonServiceImpl;
 
@@ -26,26 +19,22 @@ public class PersonApplication {
 
 	public static void main(String[] args) {
 		PersonApplication service= new PersonApplication();
-		
-		
-		  // People that feed cat 
-		  service.peopleWhoHaveCat();
 		  
 		  // Count people by gender 
 		  service.showNumberOfPeopleByGender();
 		  
-		  //Find person like cat but don't like dog and has age between 18 to 21
-		  service.showPersonLikeCat_UnlikeDog_Female_18to21();
-		 
 		  // Find people who feed pets
 		  service.peopleWhoHavePetMoreThanOneType();
+		  
+		  // People that feed cat 
+		  service.peopleWhoHaveCat();
+		  
+		   //Find gender that like cat most than other one
+		  service.showGenderOfPeopleWhoLikeCatTheMost();
 		  
 		  //Do someone don't feet pet ?
 		  service.showPersonDoesNotHavePet();
 		
-		  //Find gender that like cat most than other one
-		  service.showGenderOfPeopleWhoLikeCatTheMost();
-		  
 	}
 	
 	public void showNumberOfPeopleByGender() {
@@ -89,13 +78,6 @@ public class PersonApplication {
 		System.out.println(p.toString());
 	}
 
-	public void showPersonLikeCat_UnlikeDog_Female_18to21() {
-		String query = "SELECT * FROM person WHERE person_pet LIKE '%Cat%'\n"
-				+ "and person_pet NOT LIKE '%Dog%'\n"
-				+ "and person_age BETWEEN 18 and 21";
-		List<Person> people = personService.findPeople_LikeCat_UnlikeDog_Female_18to21(connection, query);
-		people.forEach(System.out::println);
-	}
 	
 
 }

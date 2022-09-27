@@ -6,7 +6,6 @@ import java.util.Map;
 
 import com.piseth.java.school.model.Gender;
 import com.piseth.java.school.model.Person;
-import com.piseth.java.school.model.Pet;
 
 public interface PersonService {
 	List<Person> getListPeopleFromDao(Connection connection,String query);
@@ -25,5 +24,4 @@ public interface PersonService {
 
 	Person youngestPerson(Connection connection,String query);
 	
-    List<Person> findPeople_LikeCat_UnlikeDog_Female_18to21(Connection connection , String query);
 }

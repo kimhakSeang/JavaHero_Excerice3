@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import com.piseth.java.school.model.Gender;
 import com.piseth.java.school.model.Person;
@@ -149,20 +148,6 @@ public class PersonServiceImpl implements PersonService{
 		}
 		return false;
 	}
-	@Override
-	public List<Person> findPeople_LikeCat_UnlikeDog_Female_18to21(Connection connection, String query){
-		return getListPeopleFromDao(connection, query)	;
-	}
-	
-	
-	
-
-
-	
-
-	
-	
-
 	
 	
 
